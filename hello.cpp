@@ -1,7 +1,13 @@
-#include<iostream>
-#include <boost>
- 
-int main(int argc, char *argv[]){
-   std::cout << "Hello World!" << std::endl;
-   return 0;
+#include <boost/lambda/lambda.hpp>
+#include <iostream>
+#include <iterator>
+#include <algorithm>
+
+int main()
+{
+    using namespace boost::lambda;
+    typedef std::istream_iterator<int> in;
+
+    std::for_each(
+        in(std::cin), in(), std::cout << (_1 * 3) << " " );
 }
